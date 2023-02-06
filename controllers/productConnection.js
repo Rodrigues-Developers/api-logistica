@@ -10,27 +10,27 @@ const options = {
 };
 
 // const options = {
-//   useNewUrlParser: true,
-//   useUnifiedTopology: true,
-//   useFindAndModify: false,
-//   useCreateIndex: true,
-// };
-
-
-
-const username = encodeURIComponent("machad721");
-const password = encodeURIComponent("CdIFkjddhM1ar7PK");
-const cluster = "logistics-cluster";
-const database = "logistics";
-const authMechanism = "<authMechanism>";
-
-const uri = `mongodb+srv://${username}:${password}@${cluster}.y6c8dms.mongodb.net/${database}?retryWrites=true&w=majority`;
-
-const conn = mongoose.createConnection(uri, options); 
-
-//Se der errado olhar esta linha
-const ProductModel = conn.model("product", productSchema);
-
-module.exports = conn;
-
-
+  //   useNewUrlParser: true,
+  //   useUnifiedTopology: true,
+  //   useFindAndModify: false,
+  //   useCreateIndex: true,
+  // };
+  
+  
+  
+  const username = encodeURIComponent("machad721");
+  const password = encodeURIComponent("CdIFkjddhM1ar7PK");
+  const cluster = "logistics-cluster";
+  const database = "logistics";
+  const authMechanism = "<authMechanism>";
+  
+  const uri = `mongodb+srv://${username}:${password}@${cluster}.y6c8dms.mongodb.net/${database}?retryWrites=true&w=majority`;
+  
+  const conn = mongoose.createConnection(uri, options); 
+  
+  //Se der errado olhar esta linha
+  const ProductModel = conn.model("product", productSchema);
+  
+  module.exports = conn;
+  
+  

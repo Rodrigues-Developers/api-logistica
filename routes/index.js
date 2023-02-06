@@ -3,6 +3,8 @@ var router = express.Router();
 
 /* GET home page. */
 router.get('/', function(req, res, next) {
+  // res.setHeader("Access-Control-Allow-Origin", "http://localhost:4200");
+
   res.render('index', { title: 'Express' });
 });
 
