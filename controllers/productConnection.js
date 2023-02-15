@@ -20,7 +20,7 @@ const uri = `mongodb+srv://${username}:${password}@${cluster}.y6c8dms.mongodb.ne
 
 const conn = mongoose.createConnection(uri, options);
 
-//Se der errado olhar esta linha
+//Faz a chamada da database correta.
 const ProductModel = conn.model("product", productSchema);
 const LogisticModel = conn.model("logistics", logisticSchema);
 
