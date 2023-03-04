@@ -3,7 +3,7 @@ var router = express.Router();
 
 // /* GET logistics Log. */
 
-const ProductController = require("../controllers/ProductController.js");
+const ProductController = require("../controllers/productController.js");
 router.get("/", ProductController.index);
 router.get("/:id", ProductController.show);
 
