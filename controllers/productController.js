@@ -10,6 +10,7 @@ module.exports = {
   async show(req, res) {
     res.setHeader("Access-Control-Allow-Origin", "http://localhost:4200");
     const data = await Products.findById(req.params.id);
+    console.log(data);
     return res.json(data);
   },
 };

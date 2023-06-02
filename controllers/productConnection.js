@@ -19,7 +19,7 @@ const authMechanism = "<authMechanism>";
 const uri = `mongodb+srv://${username}:${password}@${cluster}.y6c8dms.mongodb.net/${database}?&authSource=admin&retryWrites=true&w=majority`;
 const uri2 = `mongodb://${username}:${password}@ac-cxptbgp-shard-00-00.y6c8dms.mongodb.net:27017,ac-cxptbgp-shard-00-01.y6c8dms.mongodb.net:27017,ac-cxptbgp-shard-00-02.y6c8dms.mongodb.net:27017/logistics?ssl=true&replicaSet=atlas-143uug-shard-0&authSource=admin&retryWrites=true&w=majority`;
 
-const conn = mongoose.createConnection(uri, options);
+const conn = mongoose.createConnection(uri2, options);
 
 try {
   conn.on("open", () => {
