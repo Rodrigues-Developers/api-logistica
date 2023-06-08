@@ -4,7 +4,7 @@ const Schema = mongoose.Schema;
 const productSchema = new Schema(
   {
     _id: {
-      type: String,
+      type: mongoose.Schema.Types.ObjectId,
       required: [true, "ID do produto é obrigatório"],
     },
     nfe: {
