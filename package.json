@@ -18,6 +18,7 @@
     "pug": "^3.0.2"
   },
   "devDependencies": {
+    "hint": "^7.1.8",
     "nodemon": "^2.0.20"
   }
 }

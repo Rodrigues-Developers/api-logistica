@@ -13,6 +13,7 @@ var logisticsRouter = require("./routes/logistics");
 var app = express();
 
 //Enable cors for all routes
+app.use(cors({ origin: "http://localhost:4200" }));
 app.use(cors());
 
 // view engine setup
