@@ -1,6 +1,5 @@
-const connection = require("./productConnection");
-const Logistics
- = connection.models["logistics"];
+const connection = require("./connection");
+const Logistics = connection.models["logistics"];
 
 module.exports = {
   async index(req, res) {

@@ -1,6 +1,7 @@
 const mongoose = require("mongoose");
 const productSchema = require("../models/productSchema");
 const logisticSchema = require("../models/logisticSchema");
+const rankingSchema = require("../models/rankingSchema");
 
 const options = {
   autoIndex: false, // Don't build indexes
@@ -19,7 +20,7 @@ const authMechanism = "<authMechanism>";
 const uri = `mongodb+srv://${username}:${password}@${cluster}.y6c8dms.mongodb.net/${database}?&authSource=admin&retryWrites=true&w=majority`;
 const uri2 = `mongodb://${username}:${password}@ac-cxptbgp-shard-00-00.y6c8dms.mongodb.net:27017,ac-cxptbgp-shard-00-01.y6c8dms.mongodb.net:27017,ac-cxptbgp-shard-00-02.y6c8dms.mongodb.net:27017/logistics?ssl=true&replicaSet=atlas-143uug-shard-0&authSource=admin&retryWrites=true&w=majority`;
 
-const conn = mongoose.createConnection(uri2, options);
+const conn = mongoose.createConnection(uri, options);
 
 try {
   conn.on("open", () => {
@@ -32,5 +33,6 @@ try {
 //Faz a chamada da database correta.
 const ProductModel = conn.model("product", productSchema);
 const LogisticModel = conn.model("logistics", logisticSchema);
+const RankingModel = conn.model("ranking", rankingSchema);
 
 module.exports = conn;
