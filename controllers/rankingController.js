@@ -6,12 +6,12 @@ const Ranking = connection.models["ranking"];
 
 module.exports = {
   async index(req, res) {
-    // res.setHeader("Access-Control-Allow-Origin", allowedOrigins);
+
     const data = await Ranking.find();
     return res.json(data);
   },
   async show(req, res) {
-    // res.setHeader("Access-Control-Allow-Origin", "http://localhost:4200");
+
     const data = await Ranking.findById(req.params.id);
     return res.json(data);
   },
@@ -25,7 +25,7 @@ module.exports = {
     try {
       Ranking.create(newRankItem).then((result) => {});
 
-      return res.status(200).json(newRankItem); // Retorna o item criado
+      return res.status(200).json(newRankItem); // Return the created item
     } catch (err) {
       return res.status(500).json({ error: "Erro ao salvar o score. " });
     }

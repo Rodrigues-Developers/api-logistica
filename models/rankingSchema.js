@@ -20,7 +20,7 @@ const rankingSchema = new Schema(
       required: [true, "Score é obrigatório"],
     },
   },
-  { collection: "game" }
+  { collection: "games" }
 );
 
 module.exports = rankingSchema;
