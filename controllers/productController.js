@@ -1,4 +1,4 @@
-const connection = require("./productConnection");
+const connection = require("./connection");
 const Products = connection.models["product"];
 
 module.exports = {
