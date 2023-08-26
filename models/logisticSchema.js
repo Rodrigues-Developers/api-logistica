@@ -5,19 +5,19 @@ const productSchema = new Schema(
   {
     _id: {
       type: mongoose.Schema.Types.ObjectId,
-      required: [true, "ID do produto é obrigatório"],
+      required: [true, "ID da nota é obrigatório."],
     },
     nfe: {
       type: String,
-      required: [true, "Número da NF é obrigatória"],
+      required: [true, "Número da NF é obrigatória."],
     },
     emissionNf: {
       type: Date,
-      required: [true, "Data de emissão da NF é obrigatória"],
+      required: [true, "Data de emissão da NF é obrigatória."],
     },
     shipping_company: {
       type: String,
-      required: [true, "Valor do produto é obrigatório"],
+      required: [true, "Informação de transporte é obrigatório."],
     },
     arrival_forecast: {
       type: Date,
@@ -27,24 +27,23 @@ const productSchema = new Schema(
     },
     merchandise: {
       type: [Object],
-      required: [true, "Valor do produto é obrigatório"],
+      required: [true, "A nota deve conter produtos."],
     },
     nfe_value: {
       type: Number,
-      required: [true, "Deve fazer parte de um Sub Grupo."],
+      required: [true, "O valor da nota é obrigatório."],
     },
     note: {
       type: String,
-      required: [true, "Valor do produto é obrigatório"],
     },
     pin_release: {
       type: Date,
-      required: [true, "Valor do produto é obrigatório"],
     },
     status: {
       type: String,
       required: [true, "Valor do produto é obrigatório"],
     },
+    
   },
   { collection: "logistics" }
 );
