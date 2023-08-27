@@ -15,7 +15,7 @@ module.exports = {
   },
 
   /**
-   *
+   * Store function
    * @param {*} req
    * @param {*} res
    * @returns Database answer
@@ -31,17 +31,41 @@ module.exports = {
     }
   },
 
+  /**
+   * Update function
+   * @param {*} req
+   * @param {*} res
+   */
   async update(req, res) {
-    await Logistics.findById(req.params.id, req.body, {
-      new: true,
-    })
-      .then((result) => {
-        return res.json({ success: true, message: "Article Updated" });
-      })
-      .catch((err) => ({ success: false, message: err.message }));
-    //TODO Analyze da node project to see how to do this
+
+    try {
+      const updateLogistics = await Logistics.findByIdAndUpdate(
+        req.params.id,
+        req.body,
+        { new: true }
+      );
+
+      if (!updateLogistics) {
+        return res
+          .status(404)
+          .json({ success: false, message: "Logistics not found" });
+      }
+
+      return res.json({
+        success: true,
+        message: "Logistics updated successfully",
+      });
+
+    } catch (err) {
+      return res.status(500).json({ success: false, message: err.message });
+    }
   },
 
+  /**
+   * Delete function
+   * @param {*} req
+   * @param {*} res
+   */
   async destroy(req, res) {
     await Logistics.findByIdAndDelete(req.params.id)
       .then((result) => {
