@@ -25,7 +25,7 @@ module.exports = {
 
     try {
       Logistics.create(newLogisticItem).then((result) => {});
-      return res.status(200).json(newLogisticItem);
+      return res.status(200).json(result);
     } catch (err) {
       return res.status(500).json({ error: "Erro ao salvar Logistic." });
     }
@@ -37,7 +37,6 @@ module.exports = {
    * @param {*} res
    */
   async update(req, res) {
-
     try {
       const updateLogistics = await Logistics.findByIdAndUpdate(
         req.params.id,
@@ -48,14 +47,13 @@ module.exports = {
       if (!updateLogistics) {
         return res
           .status(404)
-          .json({ success: false, message: "Logistics not found" });
+          .json({ success: false, message: "Logistics not found." });
       }
 
       return res.json({
         success: true,
         message: "Logistics updated successfully",
       });
-
     } catch (err) {
       return res.status(500).json({ success: false, message: err.message });
     }
