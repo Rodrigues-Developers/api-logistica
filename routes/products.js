@@ -6,8 +6,8 @@ var router = express.Router();
 const ProductController = require("../controllers/productController.js");
 router.get("/", ProductController.index);
 router.get("/:id", ProductController.show);
-router.post("/", LogisticController.store);
-router.put("/:id", LogisticController.update);
-router.delete("/:id", LogisticController.destroy);
+router.post("/", ProductController.store);
+router.put("/:id", ProductController.update);
+router.delete("/:id", ProductController.destroy);
 
 module.exports = router;

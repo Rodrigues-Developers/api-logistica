@@ -54,6 +54,7 @@ module.exports = {
         success: true,
         message: "Logistics updated successfully",
       });
+
     } catch (err) {
       return res.status(500).json({ success: false, message: err.message });
     }
@@ -66,7 +67,7 @@ module.exports = {
    */
   async destroy(req, res) {
     await Logistics.findByIdAndDelete(req.params.id)
-      .then((result) => {
+      .then(() => {
         return res.json({
           success: true,
           message: "Article Deleted",
