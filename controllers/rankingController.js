@@ -17,7 +17,6 @@ module.exports = {
   },
 
   async store(req, res) {
-    console.log("chegou no Post");
     let newRankItem = req.body;
     newRankItem._id = new ObjectId();
     newRankItem.date = new Date();
