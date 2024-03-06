@@ -1,7 +1,7 @@
 const connection = require("./connection");
 const Logistics = connection.models["logistics"];
 
-module.exports = {
+module.exports = {  
   async index(req, res) {
     res.setHeader("Access-Control-Allow-Origin", "http://localhost:4200");
     const data = await Logistics.find();
@@ -67,7 +67,7 @@ module.exports = {
    */
   async destroy(req, res) {
     await Logistics.findByIdAndDelete(req.params.id)
-      .then(() => {
+      .then(() => { 
         return res.json({
           success: true,
           message: "Article Deleted",

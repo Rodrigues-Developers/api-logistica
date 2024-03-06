@@ -11,39 +11,63 @@ const productSchema = new Schema(
       type: String,
       required: [true, "Número da NF é obrigatória."],
     },
-    emissionNf: {
+    operation: {
       type: Date,
       required: [true, "Data de emissão da NF é obrigatória."],
     },
-    shipping_company: {
-      type: String,
+    emission_date: {
+      type: Date,
       required: [true, "Informação de transporte é obrigatório."],
     },
-    arrival_forecast: {
-      type: Date,
+    supplier: {
+      type: mongoose.Schema.Types.ObjectId,
+      required: [true, "Informação de transporte é obrigatório"],
     },
-    date_out: {
-      type: Date,
+    receiver: {
+      type: mongoose.Schema.Types.ObjectId,
     },
-    merchandise: {
-      type: [Object],
+    transporter: {
+      type: mongoose.Schema.Types.ObjectId,
       required: [true, "A nota deve conter produtos."],
     },
-    nfe_value: {
+    freight: {
       type: Number,
       required: [true, "O valor da nota é obrigatório."],
     },
-    note: {
-      type: String,
+    discount: {
+      type: Number,
     },
-    pin_release: {
-      type: Date,
+    total_product_value: {
+      type: Number,
     },
-    status: {
-      type: String,
+    total_note_value: {
+      type: Number,
       required: [true, "Valor do produto é obrigatório"],
     },
-    
+    arrival_forecast: { 
+      Type: Date,
+     },
+    date_out: { 
+      Type: Date,
+     },
+    bulk: { 
+      Type: Number,
+     },
+    shipping_on_account: { 
+      Type: Boolean,
+     },
+    merchandise: { 
+      Type: [mongoose.Schema.Types.ObjectId],
+     },
+    note: { 
+      Type: String,
+     },
+    pin_release: { 
+      Type: Date,
+     },
+    status: { 
+      Type: String,
+     },
   },
   { collection: "logistics" }
 );
