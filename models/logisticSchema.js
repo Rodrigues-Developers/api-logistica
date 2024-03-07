@@ -12,7 +12,7 @@ const productSchema = new Schema(
       required: [true, "Número da NF é obrigatória."],
     },
     operation: {
-      type: Date,
+      type: String,
       required: [true, "Data de emissão da NF é obrigatória."],
     },
     emission_date: {
@@ -45,28 +45,28 @@ const productSchema = new Schema(
       required: [true, "Valor do produto é obrigatório"],
     },
     arrival_forecast: { 
-      Type: Date,
+      type: Date,
      },
     date_out: { 
-      Type: Date,
+      type: Date,
      },
     bulk: { 
-      Type: Number,
+      type: Number,
      },
     shipping_on_account: { 
-      Type: Boolean,
+      type: Boolean,
      },
     merchandise: { 
-      Type: [mongoose.Schema.Types.ObjectId],
+      type: [mongoose.Schema.Types.ObjectId],
      },
     note: { 
-      Type: String,
+      type: String,
      },
     pin_release: { 
-      Type: Date,
+      type: Date,
      },
     status: { 
-      Type: String,
+      type: String,
      },
   },
   { collection: "logistics" }

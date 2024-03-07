@@ -22,14 +22,17 @@ module.exports = {
    */
   async store(req, res) {
     let newLogisticItem = req.body;
-
+  
     try {
-      Logistics.create(newLogisticItem).then((result) => {});
-      return res.status(200).json(result);
+      const result = await Logistics.create(newLogisticItem);
+      return res.status(200).json(result); // Retornar o resultado da criação
     } catch (err) {
+      console.error(err); // Registrar o erro no console para depuração
       return res.status(500).json({ error: "Erro ao salvar Logistic." });
     }
   },
+  
+  
 
   /**
    * Update function
