@@ -21,18 +21,18 @@ const productSchema = new Schema(
     },
     supplier: {
       type: mongoose.Schema.Types.ObjectId,
-      required: [true, "Informação de transporte é obrigatório"],
+      required: [true, "Informação de fornecedor é obrigatório"],
     },
     receiver: {
       type: mongoose.Schema.Types.ObjectId,
     },
     transporter: {
       type: mongoose.Schema.Types.ObjectId,
-      required: [true, "A nota deve conter produtos."],
+      required: [true, "A Transportador conter produtos."],
     },
     freight: {
       type: Number,
-      required: [true, "O valor da nota é obrigatório."],
+      required: [true, "O Transportador é obrigatório."],
     },
     discount: {
       type: Number,
@@ -44,30 +44,30 @@ const productSchema = new Schema(
       type: Number,
       required: [true, "Valor do produto é obrigatório"],
     },
-    arrival_forecast: { 
+    arrival_forecast: {
       type: Date,
-     },
-    date_out: { 
+    },
+    date_out: {
       type: Date,
-     },
-    bulk: { 
+    },
+    bulk: {
       type: Number,
-     },
-    shipping_on_account: { 
+    },
+    shipping_on_account: {
       type: Boolean,
-     },
-    merchandise: { 
+    },
+    merchandise: {
       type: [mongoose.Schema.Types.ObjectId],
-     },
-    note: { 
+    },
+    note: {
       type: String,
-     },
-    pin_release: { 
+    },
+    pin_release: {
       type: Date,
-     },
-    status: { 
+    },
+    status: {
       type: String,
-     },
+    },
   },
   { collection: "logistics" }
 );
