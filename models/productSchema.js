@@ -21,23 +21,23 @@ const productSchema = new Schema(
     },
     group: {
       type: String,
-      required: [true, "Deve fazer parte de um Grupo. "],
+      // required: [true, "Deve fazer parte de um Grupo. "],
     },
     brand: {
       type: String,
-      required: [true, "Marca do produto é obrigatória"],
+      // required: [true, "Marca do produto é obrigatória"],
     },
     factory_code: {
-      type: String,
+      type: Number,
       required: [true, "Valor do produto é obrigatório"],
     },
     sub_group: {
       type: String,
-      required: [true, "Deve fazer parte de um Sub Grupo."],
+      // required: [true, "Deve fazer parte de um Sub Grupo."],
     },
     sys_code: {
       type: Number,
-      required: [true, "Valor do produto é obrigatório"],
+      // required: [true, "Valor do produto é obrigatório"],
     },
   },
   { collection: "product" }
