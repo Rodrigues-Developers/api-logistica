@@ -1,6 +1,17 @@
 const mongoose = require("mongoose");
 const Schema = mongoose.Schema;
 
+const userNoteSchema = new Schema({
+  date: {
+    type: Date,
+    required: true,
+  },
+  note: {
+    type: String,
+    required: true,
+  },
+});
+
 const productSchema = new Schema(
   {
     _id: {
@@ -34,7 +45,7 @@ const productSchema = new Schema(
       required: [true, "O valor da nota é obrigatório."],
     },
     note: {
-      type: String,
+      type: [userNoteSchema], // Using the custom type here
     },
     pin_release: {
       type: Date,
@@ -43,7 +54,6 @@ const productSchema = new Schema(
       type: String,
       required: [true, "Valor do produto é obrigatório"],
     },
-    
   },
   { collection: "logistics" }
 );
