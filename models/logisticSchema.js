@@ -1,6 +1,7 @@
 const mongoose = require("mongoose");
 const Schema = mongoose.Schema;
 
+
 const company = new Schema({
   _id: {
     type: mongoose.Schema.Types.ObjectId,
@@ -21,6 +22,18 @@ const company = new Schema({
   type: {
     type: String,
     require: [true, "O Tipo da empresa é obrigatório."],
+  },
+)};
+  
+const userNoteSchema = new Schema({
+  date: {
+    type: Date,
+    required: true,
+  },
+  note: {
+    type: String,
+    required: true,
+
   },
 });
 
@@ -84,7 +97,7 @@ const productSchema = new Schema(
       type: [mongoose.Schema.Types.ObjectId],
     },
     note: {
-      type: String,
+      type: [userNoteSchema], // Using the custom type here
     },
     pin_release: {
       type: Date,
