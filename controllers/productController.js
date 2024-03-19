@@ -17,9 +17,11 @@ module.exports = {
     let newProductItem = req.body;
 
     try {
-      Products.create(newProductItem).then((result) => {});
-      return res.status(200).json(result);
+      Products.create(newProductItem).then((result) => {
+        return res.status(200).json(result);
+      });
     } catch (err) {
+      console.log(err);
       return res.status(500).json({ error: "Erro ao salvar Product." });
     }
   },

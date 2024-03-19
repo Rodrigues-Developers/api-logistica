@@ -1,6 +1,29 @@
 const mongoose = require("mongoose");
 const Schema = mongoose.Schema;
 
+const company = new Schema({
+  _id: {
+    type: mongoose.Schema.Types.ObjectId,
+    required: [true, "ID de Company é Obrigatório"],
+  },
+  name: {
+    type: String,
+    require: [true, "O Nome da empresa é obrigatório."],
+  },
+  cnpj: {
+    type: String,
+    require: [true, "O CNPJ da empresa é obrigatório."],
+  },
+  uf: {
+    type: String,
+    require: [true, "A UF da empresa é obrigatório."],
+  },
+  type: {
+    type: String,
+    require: [true, "O Tipo da empresa é obrigatório."],
+  },
+});
+
 const productSchema = new Schema(
   {
     _id: {
@@ -20,14 +43,15 @@ const productSchema = new Schema(
       required: [true, "Informação de transporte é obrigatório."],
     },
     supplier: {
-      type: mongoose.Schema.Types.ObjectId,
+      type: company,
       required: [true, "Informação de fornecedor é obrigatório"],
     },
     receiver: {
-      type: mongoose.Schema.Types.ObjectId,
+      type: company,
+      required: [true, "Informação de destinatário é obrigatório"],
     },
     transporter: {
-      type: mongoose.Schema.Types.ObjectId,
+      type: company,
       required: [true, "A Transportador conter produtos."],
     },
     freight: {

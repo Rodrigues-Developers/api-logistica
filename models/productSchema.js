@@ -7,6 +7,10 @@ const productSchema = new Schema(
       type: mongoose.Schema.Types.ObjectId,
       required: [true, "ID do produto é obrigatório"],
     },
+    nfeId: {
+      type: mongoose.Schema.Types.ObjectId,
+      required: [true, "ID da nota é obrigatório"],
+    },
     description: {
       type: String,
       required: [true, "Nome do produto é obrigatório"],
