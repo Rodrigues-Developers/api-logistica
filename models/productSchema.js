@@ -37,7 +37,6 @@ const productSchema = new Schema(
     },
     sub_group: {
       type: String,
-      // required: [true, "Deve fazer parte de um Sub Grupo."],
     },
     sys_code: {
       type: Number,
