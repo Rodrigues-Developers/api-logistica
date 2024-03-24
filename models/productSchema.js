@@ -29,7 +29,7 @@ const productSchema = new Schema(
     },
     brand: {
       type: String,
-      // required: [true, "Marca do produto é obrigatória"],
+     
     },
     factory_code: {
       type: Number,
