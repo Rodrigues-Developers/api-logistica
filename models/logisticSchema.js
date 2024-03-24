@@ -1,7 +1,6 @@
 const mongoose = require("mongoose");
 const Schema = mongoose.Schema;
 
-
 const company = new Schema({
   _id: {
     type: mongoose.Schema.Types.ObjectId,
@@ -23,8 +22,8 @@ const company = new Schema({
     type: String,
     require: [true, "O Tipo da empresa é obrigatório."],
   },
-)};
-  
+});
+
 const userNoteSchema = new Schema({
   date: {
     type: Date,
@@ -33,7 +32,6 @@ const userNoteSchema = new Schema({
   note: {
     type: String,
     required: true,
-
   },
 });
 
