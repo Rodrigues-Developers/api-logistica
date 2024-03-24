@@ -1,7 +1,7 @@
 const connection = require("./connection");
 const Logistics = connection.models["logistics"];
 
-module.exports = {
+module.exports = {  
   async index(req, res) {
     res.setHeader("Access-Control-Allow-Origin", "http://localhost:4200");
     const data = await Logistics.find();
@@ -22,14 +22,17 @@ module.exports = {
    */
   async store(req, res) {
     let newLogisticItem = req.body;
-
+  
     try {
-      Logistics.create(newLogisticItem).then((result) => {});
-      return res.status(200).json(result);
+      const result = await Logistics.create(newLogisticItem);
+      return res.status(200).json(result); // Retornar o resultado da criação
     } catch (err) {
+      console.error(err); // Registrar o erro no console para depuração
       return res.status(500).json({ error: "Erro ao salvar Logistic." });
     }
   },
+  
+  
 
   /**
    * Update function
@@ -67,7 +70,7 @@ module.exports = {
    */
   async destroy(req, res) {
     await Logistics.findByIdAndDelete(req.params.id)
-      .then(() => {
+      .then(() => { 
         return res.json({
           success: true,
           message: "Article Deleted",

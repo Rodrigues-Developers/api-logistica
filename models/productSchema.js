@@ -7,6 +7,10 @@ const productSchema = new Schema(
       type: mongoose.Schema.Types.ObjectId,
       required: [true, "ID do produto é obrigatório"],
     },
+    nfeId: {
+      type: mongoose.Schema.Types.ObjectId,
+      required: [true, "ID da nota é obrigatório"],
+    },
     description: {
       type: String,
       required: [true, "Nome do produto é obrigatório"],
@@ -21,23 +25,22 @@ const productSchema = new Schema(
     },
     group: {
       type: String,
-      required: [true, "Deve fazer parte de um Grupo. "],
+      
     },
     brand: {
       type: String,
-      required: [true, "Marca do produto é obrigatória"],
+     
     },
     factory_code: {
-      type: String,
+      type: Number,
       required: [true, "Valor do produto é obrigatório"],
     },
     sub_group: {
       type: String,
-      required: [true, "Deve fazer parte de um Sub Grupo."],
     },
     sys_code: {
       type: Number,
-      required: [true, "Valor do produto é obrigatório"],
+    
     },
   },
   { collection: "product" }
