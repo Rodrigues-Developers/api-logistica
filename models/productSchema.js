@@ -40,7 +40,7 @@ const productSchema = new Schema(
     },
     sys_code: {
       type: Number,
-      // required: [true, "Valor do produto é obrigatório"],
+    
     },
   },
   { collection: "product" }
