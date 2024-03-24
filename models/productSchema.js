@@ -25,7 +25,7 @@ const productSchema = new Schema(
     },
     group: {
       type: String,
-      // required: [true, "Deve fazer parte de um Grupo. "],
+      
     },
     brand: {
       type: String,
