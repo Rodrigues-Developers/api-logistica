@@ -45,6 +45,10 @@ const productSchema = new Schema(
       type: String,
       required: [true, "Número da NF é obrigatória."],
     },
+    key: {
+      type: String,
+      required: [true, "A chave da nota é obrigatória."],
+    },
     operation: {
       type: String,
       required: [true, "Data de emissão da NF é obrigatória."],
