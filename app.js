@@ -16,6 +16,7 @@ var app = express();
 const allowedOrigins = [
   "http://localhost:4200",
   "https://desafio-fpf.vercel.app",
+  "https://transporte-logistica.vercel.app",
 ];
 
 //Enable cors for all routes
