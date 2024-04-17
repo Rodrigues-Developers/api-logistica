@@ -1,14 +1,16 @@
 const connection = require("./connection");
 const Products = connection.models["product"];
+const urlLocal = "http://localhost:4200"
+const urlOnline = "https://transporte-logistica.vercel.app"
 
 module.exports = {
   async index(req, res) {
-    res.setHeader("Access-Control-Allow-Origin", "http://localhost:4200");
+    res.setHeader("Access-Control-Allow-Origin", urlOnline);
     const data = await Products.find();
     return res.json(data);
   },
   async show(req, res) {
-    res.setHeader("Access-Control-Allow-Origin", "http://localhost:4200");
+    res.setHeader("Access-Control-Allow-Origin", urlOnline);
     const data = await Products.findById(req.params.id);
     return res.json(data);
   },
