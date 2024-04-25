@@ -1,16 +1,15 @@
 const connection = require("./connection");
 const Products = connection.models["product"];
-const urlLocal = "http://localhost:4200"
-const urlOnline = "https://transporte-logistica.vercel.app"
+const url = process.argv[2] === "local" ? "http://localhost:4200" : "https://transporte-logistica.vercel.app";
 
 module.exports = {
   async index(req, res) {
-    res.setHeader("Access-Control-Allow-Origin", urlOnline);
+    res.setHeader("Access-Control-Allow-Origin", url);
     const data = await Products.find();
     return res.json(data);
   },
   async show(req, res) {
-    res.setHeader("Access-Control-Allow-Origin", urlOnline);
+    res.setHeader("Access-Control-Allow-Origin", url);
     const data = await Products.findById(req.params.id);
     return res.json(data);
   },
@@ -30,16 +29,10 @@ module.exports = {
 
   async update(req, res) {
     try {
-      const updatedProduct = await Products.findByIdAndUpdate(
-        req.params.id,
-        req.body,
-        { new: true }
-      );
+      const updatedProduct = await Products.findByIdAndUpdate(req.params.id, req.body, { new: true });
 
       if (!updatedProduct) {
-        return res
-          .status(404)
-          .json({ success: false, message: "Product not found." });
+        return res.status(404).json({ success: false, message: "Product not found." });
       }
 
       return res.json({
