@@ -2,6 +2,7 @@ const mongoose = require("mongoose");
 const productSchema = require("../models/productSchema");
 const logisticSchema = require("../models/logisticSchema");
 const rankingSchema = require("../models/rankingSchema");
+const companySchema = require("../models/companySchema");
 
 const options = {
   autoIndex: false, // Don't build indexes
@@ -33,6 +34,7 @@ try {
 //Faz a chamada da database correta.
 const ProductModel = conn.model("product", productSchema);
 const LogisticModel = conn.model("logistics", logisticSchema);
+const CompanyModel = conn.model("company", companySchema);
 const RankingModel = conn.model("ranking", rankingSchema);
 
 module.exports = conn;
