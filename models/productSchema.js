@@ -1,15 +1,26 @@
 const mongoose = require("mongoose");
 const Schema = mongoose.Schema;
 
+const nfeReference = new Schema({
+  nfeId: {
+    type: mongoose.Schema.Types.ObjectId,
+    required: true,
+  },
+  note: {
+    type: Number,
+    required: true,
+  },
+});
+
 const productSchema = new Schema(
   {
     _id: {
       type: mongoose.Schema.Types.ObjectId,
       required: [true, "ID do produto é obrigatório"],
     },
-    nfeId: {
-      type: mongoose.Schema.Types.ObjectId,
-      required: [true, "ID da nota é obrigatório"],
+    nfeReference: {
+      type: nfeReference,
+      required: [true, "A referencia da nota é obrigatória"],
     },
     description: {
       type: String,
