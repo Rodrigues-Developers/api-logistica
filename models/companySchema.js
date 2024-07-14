@@ -13,8 +13,8 @@ const companySchema = new Schema(
     },
     cnpj: {
       type: String,
+      unique: [true, "A empresa pode ser Salva apenas uma vez."],
       require: [true, "O CNPJ da empresa é obrigatório."],
-      unique: true,
     },
     uf: {
       type: String,

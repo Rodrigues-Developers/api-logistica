@@ -29,7 +29,10 @@ module.exports = {
       return res.status(200).json(result); // Retornar o resultado da criação
     } catch (err) {
       console.error(err); // Registrar o erro no console para depuração
-      return res.status(500).json({ error: "Erro ao salvar Company." });
+      if(err.code === 11000){
+        return res.status(499).json({error: "Company already exists."})
+      }
+      return res.status(500).json({ error: err.status });
     }
   },
 

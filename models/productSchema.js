@@ -6,7 +6,7 @@ const nfeReference = new Schema({
     type: mongoose.Schema.Types.ObjectId,
     required: true,
   },
-  note: {
+  amount: {
     type: Number,
     required: true,
   },
@@ -19,39 +19,34 @@ const productSchema = new Schema(
       required: [true, "ID do produto é obrigatório"],
     },
     nfeReference: {
-      type: nfeReference,
+      type: [nfeReference],
       required: [true, "A referencia da nota é obrigatória"],
     },
     description: {
       type: String,
       required: [true, "Nome do produto é obrigatório"],
     },
-    amount: {
-      type: Number,
-      required: [true, "Quantidade do produto é obrigatória"],
-    },
+   
     price: {
       type: Number,
       required: [true, "Valor do produto é obrigatório"],
     },
     group: {
       type: String,
-      
     },
     brand: {
       type: String,
-     
     },
     factory_code: {
-      type: Number,
-      required: [true, "Valor do produto é obrigatório"],
+      type: String,
+      unique: [true, "O produto pode ser Salva apenas uma vez."],
+      required: [true, "Valor do produto é obrigatório."],
     },
     sub_group: {
       type: String,
     },
     sys_code: {
       type: Number,
-    
     },
   },
   { collection: "product" }
