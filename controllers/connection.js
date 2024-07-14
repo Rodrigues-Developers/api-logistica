@@ -24,7 +24,7 @@ const oldURI = `mongodb://${username}:${password}@ac-cxptbgp-shard-00-00.y6c8dms
 const conn = mongoose.createConnection(process.argv[3] === "2" ? oldURI : newURI, options);
 
 try {
-  conn.on("open", () => {
+  conn.on("open", async () => {
     console.log("Connected to MongoDB");
   });
 } catch (error) {
@@ -37,4 +37,14 @@ const LogisticModel = conn.model("logistics", logisticSchema);
 const CompanyModel = conn.model("company", companySchema);
 const RankingModel = conn.model("ranking", rankingSchema);
 
+// Ensure indexes
+try {
+  ProductModel.createIndexes();
+  LogisticModel.createIndexes();
+  RankingModel.createIndexes();
+  CompanyModel.createIndexes();
+  console.log("Indexes ensured");
+} catch (err) {
+  console.error("Error ensuring indexes:", err.message);
+}
 module.exports = conn;
