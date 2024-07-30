@@ -26,7 +26,7 @@ const productSchema = new Schema(
       type: String,
       required: [true, "Nome do produto é obrigatório"],
     },
-   
+
     price: {
       type: Number,
       required: [true, "Valor do produto é obrigatório"],

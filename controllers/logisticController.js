@@ -41,7 +41,6 @@ module.exports = {
   async update(req, res) {
     try {
       const updateLogistics = await Logistics.findByIdAndUpdate(req.params.id, req.body, { new: true });
-
       if (!updateLogistics) {
         return res.status(404).json({ success: false, message: "Logistics not found." });
       }
